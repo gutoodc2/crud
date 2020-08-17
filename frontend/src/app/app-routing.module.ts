@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { TabelaViewComponent } from './views/tabela-view/tabela-view.component';
+import { HomeComponent } from './views/home/home.component';
+
+const routes: Routes = [
+  {path: "",component: HomeComponent},
+  {path: "tabela",component: TabelaViewComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
