@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { TabelaViewComponent } from './views/tabela-view/tabela-view.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FiltrosComponent } from './components/tabela/filtros/filtros.component';
+
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +43,8 @@ import { TabelaViewComponent } from './views/tabela-view/tabela-view.component';
     NavComponent,
     HomeComponent,
     TabelaComponent,
-    TabelaViewComponent
+    TabelaViewComponent,
+    FiltrosComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +58,17 @@ import { TabelaViewComponent } from './views/tabela-view/tabela-view.component';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    // {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    // { provide: LOCALE_ID, useValue: 'pt'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
