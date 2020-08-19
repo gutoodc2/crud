@@ -1,3 +1,4 @@
+import { FiltrosComponent } from './../filtros/filtros.component';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TabelaService } from '../tabela.service';
@@ -23,22 +24,13 @@ export class TabelaComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+
   ngOnInit() {
     this.tabelaService.sendGetRequest().subscribe((data: any) => {
-      //this.usuarios = data;
       this.dataSource = new MatTableDataSource(data);
-      //console.log(data);
-      //Implementa Paginação
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
-   
-  
-    //this.dataSource.paginator = this.paginator;
-
-    // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-    // this.dataSource.paginator = this.paginator;
-    
   }
 
 

@@ -5,6 +5,13 @@ import { TabelaService } from '../tabela.service';
 import { MatTableDataSource } from '@angular/material/table';
 import * as moment from 'moment/moment';
 
+export interface Element {
+  id: string;
+  nome: string;
+  data: string;
+  hora: string;
+}
+
 @Component({
   selector: 'app-filtros',
   templateUrl: './filtros.component.html',
@@ -13,8 +20,9 @@ import * as moment from 'moment/moment';
 export class FiltrosComponent implements OnInit {
   
   public usuarios: Observable<Object[]>;
-  dataSource: MatTableDataSource<any[]>;
-  
+
+  dataSource: MatTableDataSource<Element>;
+
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
@@ -25,21 +33,32 @@ export class FiltrosComponent implements OnInit {
   ngOnInit(): void {
     this.tabelaService.sendGetRequest().subscribe((data: any) => {
       this.dataSource = new MatTableDataSource(data);
+      //this.dataFiltered = new MatTableDataSource(data);
       console.log(this.dataSource)
     })
   }
 
-  updateData():void {
-    var inicio = this.dataSource.filteredData[0]["data"]
-    // var momentInicio = moment(inicio, 'MM-DD-YYYY')
+  updateData(): void{
 
-    console.log(inicio)
-    // console.log('data inicio', this.range.value.start);
-    // console.log('Data moment', moment(this.range.value.start).format('L'));
-    
+    var dateInicio = moment(this.range.value.start).format('L')
+    var dateFim = moment(this.range.value.end).format('L')
+    var date
 
-    // console.log(this.dataSource.filteredData[0]["data"])
+    console.log('Data inicio ',dateInicio)
+    console.log('Data fim ',dateFim)
+
+    let dadosCapturados = [];
+    let dadosFinais;
+
+    for (let i = 0; i < this.dataSource.filteredData.length; i++) {
+      date = moment(this.dataSource.filteredData[i]["data"],"DD/MM/YYYY").format('DD/MM/YYYY')
+      if(date >= dateInicio && date <= dateFim){
+        dadosCapturados.push(this.dataSource.filteredData[i]);
+      }
+    }
+    dadosFinais = new MatTableDataSource(dadosCapturados);
+    console.log(dadosFinais);
+
   }
-
 
 }
