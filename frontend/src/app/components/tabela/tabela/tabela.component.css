@@ -2,6 +2,25 @@
   width: 100%;
 }
 
-.corpoTabela{
-  padding: 10px;
+.button{
+  margin-right: 10px;
+}
+
+.datePicker{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.matCardBody{
+  margin-bottom: 10px;
+}
+
+.nameBody{
+  margin-right: 10px;
+}
+
+.table{
+  display: flex;
+  width: 100%;
 }

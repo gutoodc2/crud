@@ -1,5 +1,5 @@
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TabelaService } from '../tabela.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -18,8 +18,6 @@ export interface Element {
   styleUrls: ['./filtros.component.css']
 })
 export class FiltrosComponent implements OnInit {
-  
-  public usuarios: Observable<Object[]>;
 
   dataSource: MatTableDataSource<Element>;
 
@@ -33,7 +31,6 @@ export class FiltrosComponent implements OnInit {
   ngOnInit(): void {
     this.tabelaService.sendGetRequest().subscribe((data: any) => {
       this.dataSource = new MatTableDataSource(data);
-      //this.dataFiltered = new MatTableDataSource(data);
       console.log(this.dataSource)
     })
   }

@@ -1,3 +1,30 @@
+<mat-card class="matCardBody">
+  <mat-card-title> Tabela de Entradas </mat-card-title>
+  <form>
+    <mat-form-field class="nameBody">
+      <input matInput placeholder="Nome" [(ngModel)]="pessoa.nome" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field color="primary" appearance="fill" class="datePicker">
+      <mat-label>Entre com o intervalo de data</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Data inicial">
+        <input matEndDate formControlName="end" placeholder="Data final">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+
+      <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Data de inicio inválida</mat-error>
+      <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Data final inválida</mat-error>
+    </mat-form-field>
+    <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5"> 
+      Filtrar Tabela 
+    </button>
+  </form>
+  <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5"> 
+    Resetar Tabela 
+  </button>
+</mat-card>
+
 <div class="corpoTabela">
   <table mat-table [dataSource]="dataSource" class="full-width-table" matSort> 
 

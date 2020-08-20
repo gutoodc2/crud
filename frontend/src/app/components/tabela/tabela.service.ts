@@ -11,6 +11,8 @@ export class TabelaService {
 
   //Local
   private REST_API_SERVER = "http://192.168.234.41:3005/GET";
+  //private REST_API_SERVER = "http://192.168.0.183:3005/GET";
+
 
   constructor(private httpClient: HttpClient) {}
 

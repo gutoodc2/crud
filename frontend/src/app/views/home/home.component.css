@@ -1,9 +1,15 @@
+.home{
+    min-width: min-content;
+}
+
 .home .title {
     font-size: 1.5rem;
     font-weight: 300;
     line-height: 1.2;
+    display: flex;
 }
 
 .home .subtitle{
     font-size: 1.1rem;
+    display: flex;
 }

@@ -33,6 +33,10 @@ import { FiltrosComponent } from './components/tabela/filtros/filtros.component'
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
+import { MatInputModule } from '@angular/material/input';
+
+import { FlexLayoutModule } from '@angular/flex-layout'
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -64,10 +68,11 @@ registerLocaleData(localePt);
     MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
+    FlexLayoutModule
   ],
   providers: [
-    // {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
-    // { provide: LOCALE_ID, useValue: 'pt'}
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
   ],
   bootstrap: [AppComponent]
 })

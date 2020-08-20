@@ -1,7 +1,8 @@
 .header{
     display: flex;
     align-items: center;
-    background-color: #E4ECF5;
+    width: 100%;
+    min-width: min-content;
 }
 
 .header a{
@@ -19,7 +20,7 @@
     font-family: 'Times New Roman';
     font-style: inherit;
     font-size: 20px;
-    color: black;
+    color: White;
 }
 
 .header .title-group i{
