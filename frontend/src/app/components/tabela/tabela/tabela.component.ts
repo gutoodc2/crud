@@ -45,6 +45,14 @@ export class TabelaComponent implements OnInit {
     })
   }
 
+  teste():void{
+    this.tabelaService.updateTableData(this.dataSource,moment(this.range.value.start).format('L'),moment(this.range.value.end).format('L'),this.pessoa.nome).subscribe((data: any) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+  }
+
   updateData(): void{
 
     var dateInicio = moment(this.range.value.start).format('L');
@@ -59,23 +67,6 @@ export class TabelaComponent implements OnInit {
 
     let dadosCapturados = [];
     let dadosFinais;
-
-    // if(moment(dateInicio,"DD/MM/YYYY").isValid() && moment(dateFim,"DD/MM/YYYY").isValid()){
-    //   for (let i = 0; i < this.dataSource.filteredData.length; i++) {
-    //     date = moment(this.dataSource.filteredData[i]["data"],"DD/MM/YYYY").format('DD/MM/YYYY')
-    //     if(date >= dateInicio && date <= dateFim){
-    //       dadosCapturados.push(this.dataSource.filteredData[i]);
-    //     }
-    //   }
-    // }else{     
-    //   this.tabelaService.sendGetRequest().subscribe((data: any) => {
-    //     this.dataSource = new MatTableDataSource(data);
-    //     this.dataSource.paginator = this.paginator;
-    //     this.dataSource.sort = this.sort;
-    //   })
-    // }
-
-    //this.resetData();
 
     /// LÓGICAS DE FILTRAGEM ///
     if(this.pessoa.nome=="" && !(moment(dateInicio,"DD/MM/YYYY").isValid() && moment(dateFim,"DD/MM/YYYY").isValid())){

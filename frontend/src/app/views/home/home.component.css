@@ -1,6 +1,6 @@
-.home{
+/* .home{
     min-width: min-content;
-}
+} */
 
 .home .title {
     font-size: 1.5rem;
@@ -13,3 +13,9 @@
     font-size: 1.1rem;
     display: flex;
 }
+
+/* .content[_ngcontent-usl-c185] {
+    padding: 16px;
+    background-color: white;
+    width: 100%; <-------------------------------------------
+} */

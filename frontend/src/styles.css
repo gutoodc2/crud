@@ -11,6 +11,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     vertical-align: middle;
 }
 
-/* .mainBody{
-    display: flex;
-} */
+.mat-drawer-content {
+    background-color: white;
+}
+
+.mat-card {
+    margin: 8px 8px 8px 8px;
+}
