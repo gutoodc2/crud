@@ -18,3 +18,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-card {
     margin: 8px 8px 8px 8px;
 }
+
+/* .home[_ngcontent-lwb-c166] .subtitle[_ngcontent-lwb-c166] {
+    font-size: 1.1rem;
+    display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-inline-size: fit-content;
+} */

@@ -35,7 +35,9 @@ import { registerLocaleData } from '@angular/common';
 
 import { MatInputModule } from '@angular/material/input';
 
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+// import { LayoutModule } from '@angular/cdk/layout';
 
 registerLocaleData(localePt);
 
@@ -69,7 +71,8 @@ registerLocaleData(localePt);
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    // LayoutModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},

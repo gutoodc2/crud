@@ -1,7 +1,5 @@
-import { MatSort } from '@angular/material/sort';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import * as moment from 'moment/moment';
 
@@ -14,8 +12,8 @@ export class TabelaService {
   //private REST_API_SERVER = "http://18.230.31.121:3005/GET";
 
   //Local
-  private REST_API_SERVER = "http://192.168.234.41:3005/GET";
-  //private REST_API_SERVER = "http://192.168.0.183:3005/GET";
+  //private REST_API_SERVER = "http://192.168.234.41:3005/GET";
+  private REST_API_SERVER = "http://192.168.0.183:3005/GET";
 
 
   constructor(private httpClient: HttpClient) {}
@@ -43,10 +41,11 @@ export class TabelaService {
 
     /// LÓGICAS DE FILTRAGEM ///
     if(nome=="" && !(moment(dateInicio,"DD/MM/YYYY").isValid() && moment(dateFim,"DD/MM/YYYY").isValid())){
-      //console.log("show all");
+      console.log("show all");
       this.sendGetRequest().subscribe((data: any) => {
         dataSource = new MatTableDataSource(data);
-        return(dataSource);
+        console.log('teste: ', dataSource);
+        return(dataSource.filteredData);
       })
     }
     if(!(nome=="") && !(moment(dateInicio,"DD/MM/YYYY").isValid() && moment(dateFim,"DD/MM/YYYY").isValid())){
@@ -58,10 +57,8 @@ export class TabelaService {
         }
       }
       dadosFinais = new MatTableDataSource(dadosCapturados);
-      console.log(dadosFinais);
-  
-      dataSource = new MatTableDataSource(dadosFinais.data);
-      return(dataSource);
+      dataSource = new MatTableDataSource(dadosFinais);
+      return(dataSource.filteredData);
     }
     if(nome=="" && (moment(dateInicio,"DD/MM/YYYY").isValid() && moment(dateFim,"DD/MM/YYYY").isValid())){
       //console.log("show all dates");
@@ -72,10 +69,8 @@ export class TabelaService {
         }
       }
       dadosFinais = new MatTableDataSource(dadosCapturados);
-      console.log(dadosFinais);
-  
-      dataSource = new MatTableDataSource(dadosFinais.data);
-      return(dataSource);
+      dataSource = new MatTableDataSource(dadosFinais);
+      return(dataSource.filteredData);
     }
     if(!(nome=="") && ((moment(dateInicio,"DD/MM/YYYY").isValid() && moment(dateFim,"DD/MM/YYYY").isValid()))){
       //console.log("show all names with dates");
@@ -87,10 +82,8 @@ export class TabelaService {
         }
       }
       dadosFinais = new MatTableDataSource(dadosCapturados);
-      console.log(dadosFinais);
-  
-      dataSource = new MatTableDataSource(dadosFinais.data);
-      return(dataSource);
+      dataSource = new MatTableDataSource(dadosFinais);
+      return(dataSource.filteredData);
     }
    
   }

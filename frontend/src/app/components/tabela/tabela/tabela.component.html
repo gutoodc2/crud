@@ -16,17 +16,18 @@
       <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Data de inicio inválida</mat-error>
       <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Data final inválida</mat-error>
     </mat-form-field>
-    <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5"> 
-      Filtrar Tabela 
+    <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5" fxFlex.xs="33%">
+      Filtrar Tabela
     </button>
   </form>
-  <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5"> 
-    Resetar Tabela 
+  <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5">
+    Resetar Tabela
   </button>
 </mat-card>
 
+
 <div class="corpoTabela button mat-elevation-z5">
-  <table mat-table [dataSource]="dataSource" class="full-width-table" matSort> 
+  <table mat-table [dataSource]="dataSource" class="full-width-table" matSort>
 
     <ng-container matColumnDef="nome">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
