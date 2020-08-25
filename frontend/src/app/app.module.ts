@@ -37,7 +37,8 @@ import { MatInputModule } from '@angular/material/input';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-// import { LayoutModule } from '@angular/cdk/layout';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 registerLocaleData(localePt);
 
@@ -72,7 +73,8 @@ registerLocaleData(localePt);
     ReactiveFormsModule,
     MatInputModule,
     FlexLayoutModule,
-    // LayoutModule
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},

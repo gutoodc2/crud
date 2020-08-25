@@ -1,9 +1,8 @@
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { TabelaService } from '../tabela.service';
 import { MatPaginator } from '@angular/material/paginator'
 import { MatSort} from '@angular/material/sort';
-//import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatTableDataSource } from '@angular/material/table';
 
 import * as moment from 'moment/moment';
@@ -17,8 +16,8 @@ export interface Pessoa {
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.css']
 })
-export class TabelaComponent implements OnInit {
-
+export class TabelaComponent implements OnInit{
+  @Input() deviceXs: boolean;
   dataSource: MatTableDataSource<any[]>;
 
   pessoa: Pessoa = {

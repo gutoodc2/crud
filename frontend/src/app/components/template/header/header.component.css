@@ -15,6 +15,10 @@
     max-height: 50px;
 }
 
+.header .logoMobile{
+    max-height: 50px;
+}
+
 .header .title-group{
     padding-left: 25px;
     font-family: 'Times New Roman';

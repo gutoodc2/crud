@@ -1,3 +1,4 @@
+<div *ngIf="!deviceXs">
 <mat-toolbar class="header">
     <span>
         <a routerLink="/">
@@ -13,3 +14,40 @@
         </a>
     </span>
 </mat-toolbar>
+</div>
+
+<div *ngIf="deviceXs">
+    <mat-toolbar  xLayout="row" fxLayoutAlign="space-between center">
+        <mat-toolbar-row>
+            <button mat-icon-button>
+                <i class='material-icons' (click)="sidenav.toggle()"> menu </i>
+                Menu
+            </button>
+            <span class="menu-spacer"></span>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <span class='title-group'>
+                <a>
+                    <i class='material-icons' style="vertical-align: sub;">
+                        dashboard
+                    </i>
+                    Fechadura Eletrônica
+                </a>
+            </span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="'/'"> Início </a>
+            <a mat-list-item [routerLink]="'/tabela'"> Tabela de Entradas </a>
+        </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div style="height: 88vh;">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
