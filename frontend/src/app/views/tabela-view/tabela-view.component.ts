@@ -7,7 +7,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './tabela-view.component.html',
   styleUrls: ['./tabela-view.component.css']
 })
-export class TabelaViewComponent implements OnInit, OnDestroy{
+export class TabelaViewComponent implements OnInit{
 
   mediaSub:Subscription;
   deviceXs: boolean;
@@ -22,9 +22,9 @@ export class TabelaViewComponent implements OnInit, OnDestroy{
     })
   }
 
-  ngOnDestroy(): void{
-    this.mediaSub.unsubscribe();
-  }
+  // ngOnDestroy(): void{
+  //   // this.mediaSub.unsubscribe();
+  // }
 
 
 }
