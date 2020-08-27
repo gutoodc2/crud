@@ -39,6 +39,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { VinculaViewComponent } from './views/vincula-view/vincula-view.component';
+import { VinculaComponent } from './components/vincula/vincula.component';
 
 registerLocaleData(localePt);
 
@@ -52,6 +54,8 @@ registerLocaleData(localePt);
     TabelaComponent,
     TabelaViewComponent,
     FiltrosComponent,
+    VinculaViewComponent,
+    VinculaComponent,
   ],
   imports: [
     BrowserModule,

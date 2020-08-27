@@ -1,3 +1,4 @@
+import { VinculaViewComponent } from './views/vincula-view/vincula-view.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -6,7 +7,8 @@ import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
   {path: "",component: HomeComponent},
-  {path: "tabela",component: TabelaViewComponent}
+  {path: "tabela",component: TabelaViewComponent},
+  {path: "vincula",component: VinculaViewComponent}
 ];
 
 @NgModule({

@@ -38,12 +38,6 @@ export class TabelaComponent implements OnInit{
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
-    // this.observer.observe(['(max-width: 700px)', '(min-width: 500px)']).subscribe(result => {
-    //   console.log(result);
-    //   // Do something with the result
-    // });
-
-
     this.tabelaService.sendGetRequest().subscribe((data: any) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

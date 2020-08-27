@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>Vincular Tags</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome">
+        </mat-form-field>
+        <mat-selection-list #tags>
+            <mat-list-option *ngFor="let i of usuariosTags">
+              {{i.tag}}
+            </mat-list-option>
+        </mat-selection-list>
+    </form>
+    <button mat-raised-button (click)="vincularTag()">
+        Salvar
+    </button>
+    <button mat-raised-button (click)="atualizar()">
+        Carregar
+    </button>
+    <button mat-raised-button (click)="cancelar()"> 
+        Cancelar
+    </button>    
+</mat-card>
+

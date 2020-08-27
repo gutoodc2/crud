@@ -24,18 +24,8 @@ export class TabelaService {
 
   public updateTableData(dataSource, dateInicio, dateFim, nome){
 
-    // var dataSource = dataSource
-    // var dateInicio = dateInicio;
-    // var dateFim = dateFIm;
     var date;
-    // var nome = nome;
-
     var dataTemp;
-
-    console.log('Data inicio ',dateInicio);
-    console.log('Data fim ',dateFim);
-    console.log(nome);
-
     let dadosCapturados = [];
     let dadosFinais;
 
