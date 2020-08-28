@@ -42,6 +42,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { VinculaViewComponent } from './views/vincula-view/vincula-view.component';
 import { VinculaComponent } from './components/vincula/vincula.component';
 
+import { MatSelectModule } from '@angular/material/select';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -78,7 +80,8 @@ registerLocaleData(localePt);
     MatInputModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},

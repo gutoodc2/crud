@@ -30,7 +30,6 @@ export class TabelaComponent implements OnInit{
   });
 
   constructor(private tabelaService: TabelaService){}
-              // private observer: BreakpointObserver){}
 
   displayedColumns = ['nome', 'data', 'hora'];
 

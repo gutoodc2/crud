@@ -21,9 +21,14 @@ export class VinculaComponent implements OnInit {
     nubank: ''
   }
 
+  pessoa: Usuario = {
+    nome: '',
+    tag: '',
+    nubank: ''
+  }
+
   usuariosTags = [];
   dataSource: MatTableDataSource<any[]>;
-  selectedTag;
 
   constructor(private vinculaService: VinculaService) { }
 
@@ -31,12 +36,6 @@ export class VinculaComponent implements OnInit {
     this.vinculaService.sendGetRequest().subscribe((data: any) => {
       this.dataSource = new MatTableDataSource(data);
     })
-  }
-
-  current_selected: string;
-
-  onSelection(e, v){
-   this.current_selected = e.option.value;
   }
 
   atualizar(): void{
@@ -62,12 +61,14 @@ export class VinculaComponent implements OnInit {
   }
 
   vincularTag(): void{
-    console.log('vinculou!');
-    console.log(this.selectedTag);
-  }
 
-  cancelar(): void{
-    console.log('cancelou!');
+    if(this.pessoa.nubank==""){
+      this.pessoa.nubank = "null";
+    }
+
+    this.vinculaService.postJSON(this.pessoa).subscribe(() => {
+    })
+
   }
 
 }
