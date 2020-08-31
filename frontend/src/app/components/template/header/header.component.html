@@ -29,8 +29,8 @@
             </span>
         </mat-toolbar-row>
         <mat-toolbar-row>
-            <button mat-icon-button>
-                <i class='material-icons' (click)="sidenav.toggle()"> menu </i>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <i class='material-icons'> menu </i>
                 Menu
             </button>
             <span class="menu-spacer"></span>
@@ -40,8 +40,30 @@
     <mat-sidenav-container>
         <mat-sidenav #sidenav>
             <mat-nav-list class="nav-list">
-                <a mat-list-item href="/"> Início </a>
-                <a mat-list-item href="/tabela"> Tabela de Entradas </a>
+                <a mat-list-item href="/">
+                    <i class="material-icons" style="padding-right: 5px;">
+                        home
+                    </i>
+                    Início 
+                </a>
+                <a mat-list-item href="/usuarios">
+                    <i class="material-icons">
+                        perm_identity
+                    </i>
+                    Lista de Usuários
+                </a>
+                <a mat-list-item href="/tabela">
+                    <i class="material-icons" style="padding-right: 5px;">
+                        list
+                    </i>
+                    Tabela de Entradas 
+                </a>
+                <a mat-list-item href="/vincula">
+                    <i class="material-icons" style="padding-right: 5px;">
+                        add
+                    </i>
+                    Vincular Tags 
+                </a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>

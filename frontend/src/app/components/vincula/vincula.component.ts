@@ -15,12 +15,6 @@ export interface Usuario {
 })
 export class VinculaComponent implements OnInit {
 
-  usuario: Usuario = {
-    nome: '',
-    tag: '',
-    nubank: ''
-  }
-
   pessoa: Usuario = {
     nome: '',
     tag: '',
@@ -33,31 +27,23 @@ export class VinculaComponent implements OnInit {
   constructor(private vinculaService: VinculaService) { }
 
   ngOnInit(): void {
-    this.vinculaService.sendGetRequest().subscribe((data: any) => {
-      this.dataSource = new MatTableDataSource(data);
+    this.vinculaService.sendGetUserRequest().subscribe((data: any) => {
+      for (let i = 0; i < data.length; i++) {
+        this.usuariosTags.push(data[i]);
+      }
+      // console.log(this.usuariosTags);
     })
   }
 
   atualizar(): void{
-    
-    let temp = [];
-
-    temp = this.dataSource.filteredData;
-
-      for (let i = 0; i < temp.length; i++) {
-        if(temp[i].nome[0]=="0" || temp[i].nome[0]=='1' ||
-           temp[i].nome[0]=='2' || temp[i].nome[0]=='3' ||
-           temp[i].nome[0]=='4' || temp[i].nome[0]=='5' ||
-           temp[i].nome[0]=='6' || temp[i].nome[0]=='7' ||
-           temp[i].nome[0]=='8' || temp[i].nome[0]=='9')
-        {
-          this.usuario.nome = "Sem Nome";
-          this.usuario.tag   = temp[i].nome;
-          this.usuario.nubank = temp[i].nubank;
-          this.usuariosTags.push(this.usuario);
-        }
+    this.usuariosTags = [];
+    this.vinculaService.sendGetUserRequest().subscribe((data: any) => {
+      for (let i = 0; i < data.length; i++) {
+        this.usuariosTags.push(data[i]);
       }
-      console.log(this.usuariosTags);
+      // console.log(this.usuariosTags);
+    })
+
   }
 
   vincularTag(): void{
@@ -66,9 +52,18 @@ export class VinculaComponent implements OnInit {
       this.pessoa.nubank = "null";
     }
 
+    console.log(this.pessoa);
+
     this.vinculaService.postJSON(this.pessoa).subscribe(() => {
     })
 
+    this.vinculaService.showMessage('Usuário Vinculado!');
+
+    this.pessoa.nome="";
+    this.pessoa.tag="";
+    this.pessoa.nubank="";
+
+    this.atualizar();
   }
 
 }

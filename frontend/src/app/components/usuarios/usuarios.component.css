@@ -1,0 +1,26 @@
+.full-width-table {
+    width: 100%;
+  }
+  
+  .button{
+    margin: 5px 5px 5px 5px;
+  }
+  
+  .datePicker{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+  .nameBody{
+    margin-right: 10px;
+  }
+  
+  .table{
+    display: flex;
+    width: 100%;
+  }
+  
+  .corpoTabela{
+    margin: 10px 10px 10px 10px
+  }

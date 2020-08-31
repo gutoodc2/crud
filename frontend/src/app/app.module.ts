@@ -44,6 +44,13 @@ import { VinculaComponent } from './components/vincula/vincula.component';
 
 import { MatSelectModule } from '@angular/material/select';
 
+import{ MatSnackBarModule } from '@angular/material/snack-bar';
+import { UsuariosViewComponent } from './views/usuarios-view/usuarios-view.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component'
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogBoxComponent } from './views/dialog-box/dialog-box.component';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -58,6 +65,9 @@ registerLocaleData(localePt);
     FiltrosComponent,
     VinculaViewComponent,
     VinculaComponent,
+    UsuariosViewComponent,
+    UsuariosComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +91,9 @@ registerLocaleData(localePt);
     FlexLayoutModule,
     MatMenuModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
