@@ -1,3 +1,5 @@
+import { Subscription } from 'rxjs';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosViewComponent implements OnInit {
 
-  constructor() { }
+  mediaSub:Subscription;
+  deviceXs: boolean;
+
+  constructor(public MediaObserver:MediaObserver) { }
 
   ngOnInit(): void {
+    this.mediaSub = this.MediaObserver.media$.subscribe((result:MediaChange)=>{
+      this.deviceXs = result.mqAlias == 'xs' ? true : false;
+    })
   }
 
 }

@@ -1,7 +1,7 @@
 <div *ngIf="!deviceXs">
   <mat-card>
     <mat-card-title> Tabela de Entradas </mat-card-title>
-    <form>
+    <form style="flex-direction: column; display: flex;">
       <mat-form-field class="nameBody">
         <input matInput placeholder="Nome" [(ngModel)]="pessoa.nome" [ngModelOptions]="{standalone: true}">
       </mat-form-field>
@@ -13,24 +13,23 @@
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
-
         <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Data de inicio inválida</mat-error>
         <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Data final inválida</mat-error>
       </mat-form-field>
-      <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5" fxFlex.xs="33%">
+      <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5">
         Filtrar Tabela
       </button>
+      <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5">
+        Resetar Tabela
+      </button>
     </form>
-    <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5">
-      Resetar Tabela
-    </button>
   </mat-card>
 </div>
 
 <div *ngIf="deviceXs">
   <mat-card>
     <mat-card-title> Tabela de Entradas </mat-card-title>
-    <form fxLayout="column" fxLayoutAlign="start start">
+    <form style="flex-direction: column; display: flex;">
       <mat-form-field class="nameBody">
         <input matInput placeholder="Nome" [(ngModel)]="pessoa.nome" [ngModelOptions]="{standalone: true}">
       </mat-form-field>
@@ -42,17 +41,16 @@
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
-
         <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Data de inicio inválida</mat-error>
         <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Data final inválida</mat-error>
       </mat-form-field>
-      <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5" fxFlex.xs="33%">
+      <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5">
         Filtrar Tabela
       </button>
+      <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5">
+        Resetar Tabela
+      </button>
     </form>
-    <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5">
-      Resetar Tabela
-    </button>
   </mat-card>
 </div>
 

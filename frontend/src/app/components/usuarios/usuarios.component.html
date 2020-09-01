@@ -1,41 +1,58 @@
-<mat-card class="home mat-elevation-z3">
+<div>
+  <mat-card class="home mat-elevation-z3">
     <mat-card-title class="title">
-        Lista de Usuários
+      Lista de Usuários
     </mat-card-title>
     <mat-card-subtitle class="subtitle">
-        Página para visualização e exclusão de usuários do banco
+      Página para visualização e exclusão de usuários do banco
     </mat-card-subtitle>
-</mat-card>
-
+    <form style="flex-direction: column; display: flex;">
+      <mat-form-field style="margin: 5px 5px 5px 5px;">
+        <input matInput placeholder="Nome" [(ngModel)]="pessoaFiltro.nome" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field style="margin: 5px 5px 5px 5px;">
+        <input matInput placeholder="Tag" [(ngModel)]="pessoaFiltro.tag" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field style="margin: 5px 5px 5px 5px;">
+        <input matInput placeholder="Nubank" [(ngModel)]="pessoaFiltro.nubank" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <button mat-raised-button (click)="updateData()" class="button mat-elevation-z5">
+        Filtrar Usuários
+      </button>
+      <button mat-raised-button (click)="resetData()" class="button mat-elevation-z5">
+        Recarregar lista de Usuários
+      </button>
+    </form>
+  </mat-card>
+</div>
 <div class="corpoTabela button mat-elevation-z5">
-    <table mat-table [dataSource]="dataSource" class="full-width-table" matSort>
-  
-      <ng-container matColumnDef="nome">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="tag">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tag </th>
-        <td mat-cell *matCellDef="let element"> {{element.tag}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="nubank">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nubank </th>
-        <td mat-cell *matCellDef="let element"> {{element.nubank}} </td>
-      </ng-container>
+  <table mat-table [dataSource]="dataSource" class="full-width-table" matSort>
 
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Opção </th>
-        <td mat-cell *matCellDef="let element" class="action-link"> 
-          <a (click)="openDialog('Deletar',element)"> Deletar </a>  
-        </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  </div>
-  
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tag">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Tag </th>
+      <td mat-cell *matCellDef="let element"> {{element.tag}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nubank">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nubank </th>
+      <td mat-cell *matCellDef="let element"> {{element.nubank}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Opção </th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button mat-raised-button (click)="openDialog('Deletar',element)"> Deletar </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

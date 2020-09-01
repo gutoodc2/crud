@@ -1,4 +1,4 @@
-<mat-card fxLayout="column" fxLayoutAlign="space-around start" >
+<mat-card fxLayout="column" fxLayoutAlign="space-around" >
     <mat-card-title>Vincular Tags</mat-card-title>
     <form>
         <mat-form-field appearance="fill">
@@ -7,7 +7,7 @@
               <mat-option *ngFor="let tag of usuariosTags" [value]="tag">{{tag}}</mat-option>
             </mat-select>
         </mat-form-field>
-        <button class="button" mat-raised-button (click)="atualizar()">
+        <button class="button" mat-raised-button (click)="atualizar()" class="button mat-elevation-z5">
             Carregar
         </button>
     </form>
@@ -18,7 +18,7 @@
         <input matInput placeholder="Nubank" [(ngModel)]="pessoa.nubank" [ngModelOptions]="{standalone: true}">
         <mat-hint> Deixar em branco caso não possua </mat-hint>
     </mat-form-field>
-    <button class="button" mat-raised-button (click)="vincularTag()">
+    <button class="button" mat-raised-button (click)="vincularTag()" class="button mat-elevation-z5">
         Salvar
     </button> 
 </mat-card>

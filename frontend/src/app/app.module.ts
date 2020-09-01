@@ -28,7 +28,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FiltrosComponent } from './components/tabela/filtros/filtros.component';
+// import { FiltrosComponent } from './components/tabela/filtros/filtros.component';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
@@ -62,7 +62,7 @@ registerLocaleData(localePt);
     HomeComponent,
     TabelaComponent,
     TabelaViewComponent,
-    FiltrosComponent,
+    // FiltrosComponent,
     VinculaViewComponent,
     VinculaComponent,
     UsuariosViewComponent,
@@ -93,7 +93,7 @@ registerLocaleData(localePt);
     MatIconModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},

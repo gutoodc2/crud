@@ -48,20 +48,29 @@ export class VinculaComponent implements OnInit {
 
   vincularTag(): void{
 
+    let valido=1;
+
     if(this.pessoa.nubank==""){
       this.pessoa.nubank = "null";
     }
 
+    if(this.pessoa.nome=="" || this.pessoa.tag==""){
+      this.vinculaService.showMessage('Nome ou Tag Inválida!');
+      valido=0;
+    }
+
     console.log(this.pessoa);
 
-    this.vinculaService.postJSON(this.pessoa).subscribe(() => {
-    })
-
-    this.vinculaService.showMessage('Usuário Vinculado!');
+    if(valido==1){
+      this.vinculaService.postJSON(this.pessoa).subscribe(() => {
+      })
+      this.vinculaService.showMessage('Usuário Vinculado!');
+    }
 
     this.pessoa.nome="";
     this.pessoa.tag="";
     this.pessoa.nubank="";
+    valido=1;
 
     this.atualizar();
   }

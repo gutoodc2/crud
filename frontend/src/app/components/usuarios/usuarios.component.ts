@@ -2,7 +2,7 @@ import { DialogBoxComponent } from './../../views/dialog-box/dialog-box.componen
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { UsuariosService } from './usuarios.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -25,6 +25,12 @@ export class UsuariosComponent implements OnInit {
     nubank: ''
   }
 
+  pessoaFiltro: Usuario = {
+    nome: '',
+    tag: '',
+    nubank: ''  
+  }
+
   dataSource: MatTableDataSource<any[]>;
 
   constructor(private usuariosService: UsuariosService,public dialog: MatDialog) { }
@@ -33,10 +39,10 @@ export class UsuariosComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-
+  @Input() deviceXs: boolean;
+  
   ngOnInit(): void {
     this.usuariosService.sendGetRequest().subscribe((data: any) => {
-      console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -64,9 +70,24 @@ export class UsuariosComponent implements OnInit {
     this.pessoa.nubank = row_obj.nubank;
 
     this.usuariosService.deletUsuario(this.pessoa).subscribe(()=>{
+      this.resetData();
     })
     
-    console.log(this.pessoa);
+  }
+
+  updateData(): void{
+    let data = this.usuariosService.updateTableData(this.dataSource,this.pessoaFiltro);
+    this.dataSource = new MatTableDataSource(data.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  resetData(): void{
+    this.usuariosService.sendGetRequest().subscribe((data: any) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
 }
